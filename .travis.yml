@@ -6,4 +6,4 @@ install:
  - pip install pyinstaller
 script:
  - pytest
- - pyinstaller -F .\cf.py -n downloader
+ - pyinstaller -F cf.py -n downloader
