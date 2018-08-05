@@ -5,5 +5,5 @@ install:
  - pip install -r requirements.txt
  - pip install pyinstaller
 script:
- - python cf.py
+ - pytest
  - pyinstaller -F cf.py -n downloader
