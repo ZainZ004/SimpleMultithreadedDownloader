@@ -2,15 +2,15 @@
 # Author: Epix
 import json
 import os
-
 import sys
 import zipfile
 from multiprocessing.dummy import Pool
 
 import requests
 from requests.adapters import HTTPAdapter
-from tqdm import tqdm
 from urllib3 import Retry
+
+from tqdm import tqdm
 
 BASE_DOWNLOAD_URL = "https://minecraft.curseforge.com/projects/{}/files/{}/download"
 pack_name = ''
@@ -19,7 +19,8 @@ THREAD_NUMBER = 100
 
 s = requests.Session()
 retries = Retry(total=5, status_forcelist=[500, 502, 503, 504])
-s.mount('https://', HTTPAdapter(max_retries=retries, pool_connections=THREAD_NUMBER, pool_maxsize=THREAD_NUMBER))
+s.mount('https://', HTTPAdapter(max_retries=retries,
+                                pool_connections=THREAD_NUMBER, pool_maxsize=THREAD_NUMBER))
 
 
 def download_pack(file_path):
@@ -37,7 +38,8 @@ def download_pack(file_path):
         results.append(result)
     [print(result) for result in results if result]
     print("mc version: {}".format(manifest['minecraft']['version']))
-    print("require: {}".format(','.join([i['id'] for i in manifest['minecraft']['modLoaders']])))
+    print("require: {}".format(
+        ','.join([i['id'] for i in manifest['minecraft']['modLoaders']])))
     input("press enter to exit...")
     pass
 
