@@ -8,9 +8,8 @@ from multiprocessing.dummy import Pool
 
 import requests
 from requests.adapters import HTTPAdapter
-from urllib3 import Retry
-
 from tqdm import tqdm
+from urllib3 import Retry
 
 BASE_DOWNLOAD_URL = "https://minecraft.curseforge.com/projects/{}/files/{}/download"
 pack_name = ''
