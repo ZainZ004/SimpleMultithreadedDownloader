@@ -3,7 +3,7 @@ import tkinter as tk
 class GUI(tk.Frame):
     def __init__(self,master=None):
         super().__init__(master)
-        self.pack
+        self.pack()
         self.create_wigets()
     
     def create_wigets(self):
@@ -12,9 +12,9 @@ class GUI(tk.Frame):
         self.hi_there["height"] = 10
         self.hi_there["text"] = "Hello World\n(Click me)"
         self.hi_there["command"] = self.say_hi
-        self.hi_there.pack(side="top")
+        self.hi_there.pack(side="left")
         self.quit = tk.Button(self,text="QUIT",fg="red",command=root.destroy)
-        self.quit.pack(side="bottom")
+        self.quit.pack(side="right")
 
     def say_hi(self):
         print("Hi there,everyone")
